@@ -1,3 +1,5 @@
+package saver;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -5,12 +7,11 @@ import java.util.Arrays;
 
 public class Save extends File {
 
-    private final int id;
     private final LocalDate date;
 
-    public Save(File pathname, int id) {
+    //TODO: specify date with time
+    public Save(File pathname) {
         super(pathname.toURI());
-        this.id = id;
         this.date = LocalDate.now();
 
         try{
@@ -19,5 +20,9 @@ public class Save extends File {
             System.out.println(Arrays.toString(ex.getStackTrace()));
         }
 
+    }
+
+    public LocalDate getDate() {
+        return date;
     }
 }
